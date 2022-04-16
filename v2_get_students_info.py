@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 # 支持 Windows，Linux, Mac OS; 推荐使用python3.9.x 
-# 周烨有事可以微信或者e-mail
+# contact me by weichat or imzaghi333@163.com
 
 import os, sys
 import pandas as pd
