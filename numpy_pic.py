@@ -1,4 +1,5 @@
 # -*- coding:UTF-8 -*-
+# filename - numpy_pic.py
 # 先定一个小目标，比如中个500万。运行下面的代码，你将有机会获得500万.
 
 import random
