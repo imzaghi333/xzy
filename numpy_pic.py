@@ -31,7 +31,7 @@ def main():
     print("咱们先定一个小目标,比如我先中他个500万")
     circle = input("您打算买几组彩票:) ：")
     print("\n")
-    print("蓝色球                            红色球")
+    print("蓝色球\t红色球")
     for i in range(int(circle)):
         blue = blueBall()
         red = redBall()
