@@ -57,10 +57,8 @@ def main():
     #dest_path = sys.argv[2]+"\\"           #生成的二维码路径
     if os.name == "nt":                
         dest_path = sys.argv[2]+"\\"   # Windows路径
-    elif os.name == "posix":
-        dest_path = sys.argv[2]+"/"    # ubuntu
     else:                              
-        dest_path = sys.argv[2]+"/"    # Mac 路径
+        dest_path = sys.argv[2]+"/"    # 生成文件在Mac,Linux路径
     
     excel = readExcel(source_file)         #读取excel
     content = excel.values                 #excel文件已经过滤，只有两列
