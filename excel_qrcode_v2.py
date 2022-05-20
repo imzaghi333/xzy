@@ -6,24 +6,24 @@
 # 运行方法: python excel_qrcode_v2.py /path/filename.xlsx /path/QRcode_folder; 命令行第一个参数是Excel文件名, 第二个参数是存放QRCode图片的目录; Linux/Mac要用python3
 # 只需要把文件和目录拖入command窗口即可,无需把文件名和目录手动输入;拖入后按Enter即可生成QRcode图片到对应目录;
 
-"""
-举个例子:
-C:\TSIEN>python v2_excel_qrcode.py "C:\TSIEN\HHQT Device list_HDC.xls" C:\Users\Auto_A\Desktop\HH
-读取第几张工作表(用数字表示): 1
-图片名列(用数字表示): 4
-二维码内容列(用数字表示): 9
---------------二维码制作开始,请稍等------------------
-HHQT_0001=======>HHQT_0001 * TPE Hand Carry * LINDY 林帝 USB3.1 Gen 2 Type-C/公 to 公 傳輸線 1m (41901) 帶PD晶片
-HHQT_0002=======>HHQT_0002 * TPE Hand Carry * 3.5mm headset （HDST-35MM-PTVP-01_01）
-HHQT_0003=======>HHQT_0003 * TPE Hand Carry * 3.5mm headset （HDST-35MM-PTVP-01_02）
-......
-......
-HHQT_0877=======>HHQT_0877 * 未知 * LAN轉接頭1轉2-01
-HHQT_0878=======>HHQT_0878 * 未知 * USB轉PS2接頭-01
-HHQT_0879=======>HHQT_0879 * 工具室高值 * LAR-2 YG SVT 13.3/I5-1135G7/S8G/512G#6-2（31N01139）
+# 举个例子
+#D:\PPP\HHQT\create_qrcode>python excel_qrcode_v2.py C:\Users\qiantun\Downloads\0520.xlsx C:\Users\qiantun\Downloads
+# #读取第几张工作表(用数字表示): 1
+# 图片名列(用数字表示): 2
+# 二维码内容列(用数字表示): 1
+# --------------二维码制作开始,请稍等------------------
+# HHQT_0980=======>HHQT_0980 * 工具室高值 * LAR-2 CS SIT 13.3/AR7P/S16G/WD1TB#8 (31N01722)
+# HHQT_0981=======>HHQT_0981 * 工具室高值 * LAR-2 CS SIT 13.3/AR7P/S16G/WD1TB#8 (31N01723)
+# HHQT_0982=======>HHQT_0982 * 工具室高值 * LAR-2 YG SIT 13.3/AR5P/M16G/H512G#11 (31N01728)
+# HHQT_0983=======>HHQT_0983 * 工具室高值 * LAR-2 YG SIT 13.3/AR5P/M16G/H512G#11 (31N01739)
+# HHQT_0984=======>HHQT_0984 * 工具室高值 * LAR-2 YG SIT 13.3/AR5P/M16G/H512G#11 (31N01736)
+# HHQT_0985=======>HHQT_0985 * 工具室高值 * LAR-2 YG SIT 13.3/AR7P/S16G/M512G#14 (31N01726)
+# HHQT_0986=======>HHQT_0986 * 工具室高值 * LAR-2 YG SIT 13.3/AR7P/S16G/M512G#14 (31N01737)
+# HHQT_0987=======>HHQT_0987 * 工具室高值 * LAR-2 YG SIT 13.3/AR7P/S16G/M512G#14 (31N01727)
+# HHQT_0988=======>HHQT_0988 * 工具室高值 * LAR-2 YG SIT 13.3/AR7P/M16G/S1TB#15 (31N01730)
+# HHQT_0989=======>HHQT_0989 * 工具室高值 * LAR-2 YG SIT 13.3/AR7P/M16G/S1TB#15 (31N01735)
 
-879张二维码制作完成,耗时34.51719903945923秒
-"""
+# 10张二维码制作完成,耗时0.2424328327178955秒
 
 import os, sys, time
 import pandas as pd
