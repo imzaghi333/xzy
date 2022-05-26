@@ -40,7 +40,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-
 """
 # -*- coding: UTF-8 -*-
 # python3.9.5 + WN10
