@@ -1,7 +1,37 @@
 # -*- coding:UTF-8 -*-
+
+#Fibonacci数量实现; 1.递归方法。当N比较大的时候就会出错,而且N越大速度越慢 2.迭代方法,N比较大的时候也可以运行，而且很快
+def Fibonacci(n):
+    if n==0:
+        return 1
+    if n==1:
+        return 1
+    else:
+        return Fibonacci(n-1)+Fibonacci(n-2)
+    
+def Fibonacci2(n):
+    a=1
+    b=1
+    temp=0
+    if n==0:
+        return a
+    if n==1:
+        return a
+    else:
+        for i in range(n):
+            #temp = a+b
+            #a = b
+            #b = temp
+            a,b = b,a+b
+        return a
+
+for i in range(1000):
+    print(Fibonacci2(i))
+
+
 # filename - numpy_pic.py
 # 先定一个小目标，比如中个500万。运行下面的代码，你将有机会获得500万.
-
+"""
 import random
 
 def blueBall():
@@ -39,6 +69,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""
 
 """
 # -*- coding: UTF-8 -*-
