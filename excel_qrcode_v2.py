@@ -29,30 +29,33 @@ import os, sys, time
 import pandas as pd
 import qrcode
 
-#读取Excel并获取两列,一列作为二维码图片名，一列作为二维码内容
-def readExcel(file_path):
-    sheetname = int(input("读取第几张工作表(用数字表示): "))    #从左往右1,2,3,4........
-    qr_name = int(input("图片名列(用数字表示): "))             #第几列
-    qr_content = int(input("二维码内容列(用数字表示): "))
-    df = pd.read_excel(file_path,sheet_name=(sheetname-1))   #下标从0开始
-    df = df.iloc[:,[qr_name-1,qr_content-1]]                 #获取名字列，内容列的所有内容
-    return df
-
-#制作二维码
-def makeQRCode(data,path):
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_H,
-        box_size=10,
-        border=1
-    )
-    qr.add_data(data)
-    qr.make(fit=True)
-    img = qr.make_image()
-    img.save(path)
-
+class QRCode:
+    
+    #读取Excel并获取两列,一列作为二维码图片名，一列作为二维码内容
+    def readExcel(self,file_path):
+        sheetname = int(input("读取第几张工作表(用数字表示): "))    #从左往右1,2,3,4........
+        qr_name = int(input("图片名列(用数字表示): "))             #第几列
+        qr_content = int(input("二维码内容列(用数字表示): "))
+        df = pd.read_excel(file_path,sheet_name=(sheetname-1))   #下标从0开始
+        df = df.iloc[:,[qr_name-1,qr_content-1]]                 #获取名字列，内容列的所有内容
+        return df
+    
+    #制作二维码
+    def makeQRCode(self,data,path):
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_H,
+            box_size=10,
+            border=1
+        )
+        qr.add_data(data)
+        qr.make(fit=True)
+        img = qr.make_image()
+        img.save(path)
+        
 # -------------------- main function --------------------
 def main():
+    qr = QRCode()
     source_file = sys.argv[1]              #源excel路径
     #dest_path = sys.argv[2]+"\\"           #生成的二维码路径
     if os.name == "nt":                
@@ -60,7 +63,7 @@ def main():
     else:                              
         dest_path = sys.argv[2]+"/"    # 生成文件在Mac,Linux路径
     
-    excel = readExcel(source_file)         #读取excel
+    excel = qr.readExcel(source_file)         #读取excel
     content = excel.values                 #excel文件已经过滤，只有两列
     length = len(content)
     print("--------------二维码制作开始,请稍等------------------")
@@ -69,7 +72,7 @@ def main():
         print("{}=======>{}".format(record[0],record[1]))
         img_path = dest_path+record[0]+".jpg"
         qr_text = record[1]
-        makeQRCode(qr_text,img_path)
+        qr.makeQRCode(qr_text,img_path)
     end = time.time()
     dtime = end-start
     print("\n{}张二维码制作完成,耗时{}秒".format(length,dtime))
