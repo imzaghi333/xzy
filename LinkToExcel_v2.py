@@ -9,7 +9,9 @@
 #設備QR-CODE: \\10.66.45.34\Handheld\WKS\測試設備及物料\物料管理系統\設備QR-CODE\All\+AssetID(設備識別碼QR-CODE的編號)+".jpg"
 #設備照片鏈接: \\10.66.45.34\Handheld\WKS\測試設備及物料\物料管理系統\設備照片\p_+AssetID(設備識別碼QR-CODE的編號)+".jpg"
 
-# 运行方式 python linkToExcel.py excel_file_path/filename /folder_name_to_save_excel
+# 运行方式 python linkToExcel.py excel_file_path/filename /folder_name_to_save_excel; 文件和文件夹拖入命令行即可,不需要自己写路径字符串
+
+# Excel文件的要求: 1.Excel第一行为标题;
 
 import os,sys,time
 import pandas as pd

@@ -5,6 +5,8 @@
 # Excel至少有两列; col1是QRCode名字, col2是QRCode内容
 # 运行方法: python excel_qrcode_v2.py /path/filename.xlsx /path/QRcode_folder; 命令行第一个参数是Excel文件名, 第二个参数是存放QRCode图片的目录; Linux/Mac要用python3
 # 只需要把文件和目录拖入command窗口即可,无需把文件名和目录手动输入;拖入后按Enter即可生成QRcode图片到对应目录;
+# Excel文件的要求:
+# 1.Excel第一行为标题; 至少要有两列: 一列内容为QR code名称, 一列内容为QR code包含的文本
 
 import os, sys, time
 import pandas as pd
